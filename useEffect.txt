@@ -1,0 +1,13 @@
+1.useEffect(setup,dependencies)
+2. the useEffect function has two arguments
+    setup - its used to setup the efect we want.
+    dependencies - its an optional array of dependenet values that determine when the setup should run.
+3. this is optional
+    return cleanup;
+        React executes the cleanup function before it unmounts the component or before the setup re-runs (except the first time).
+4.useEffect(()=>{
+    // side effect code
+    return () => {
+        // cleanup code here (optional)
+    };
+ },[dependencies])
