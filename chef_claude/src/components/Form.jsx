@@ -1,11 +1,11 @@
-import React from 'react'
+import React, { useState } from 'react'
 
 function Form() {
 
-    const Ingredients = ['chicken','oregano','spinach']
+    const [Ingredients,SetIngredients] = useState([])
 
     const Ingredientslist = Ingredients.map((e)=>{
-        return <li>{e}</li>
+        return <li key={e}>{e}</li>
     })
     function handlesubmit(event){
         event.preventDefault()
@@ -13,7 +13,8 @@ function Form() {
         const formdata = new FormData(event.currentTarget)
         const newingredient = formdata.get('ingredient')
         console.log(newingredient)
-        Ingredients.push(newingredient)
+        // Ingredients.push(newingredient)
+        SetIngredients(previngredient => [...previngredient,newingredient])
         console.log(Ingredients)
         
         /**
